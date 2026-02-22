@@ -124,6 +124,7 @@ export default function MarketCard({ market }: MarketCardProps) {
         args: [BigInt(market.id || 0), isYes],
         value: parseEther(amount),
         account: address,
+        chain: MONAD_CHAIN,
       });
 
       console.log('Transaction sent:', hash);
