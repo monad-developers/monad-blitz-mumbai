@@ -4,7 +4,6 @@ import { useInfiniteMarkets } from '@/hooks/useInfiniteMarkets';
 import MarketCard from './MarketCard';
 import { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer';
-import { Market } from '@/types/market';
 
 export default function Feed() {
   const {
@@ -24,37 +23,26 @@ export default function Feed() {
     }
   }, [inView, fetchNextPage, hasNextPage]);
 
-  if (status === 'pending') return <div className="h-screen w-full flex items-center justify-center text-white">Loading markets...</div>;
-  if (status === 'error') return <div className="h-screen w-full flex items-center justify-center text-red-500">Error: {(error as any).message}</div>;
+  if (status === 'pending') return (
+    <div className="h-screen w-full flex items-center justify-center">
+      <span className="font-mono-brand text-white/60">Loading markets...</span>
+    </div>
+  );
+  if (status === 'error') return (
+    <div className="h-screen w-full flex items-center justify-center">
+      <span className="font-mono-brand text-[#FF8EE4]">Error: {(error as any).message}</span>
+    </div>
+  );
 
   return (
     <div className="h-screen w-full overflow-y-scroll snap-y snap-mandatory scroll-smooth no-scrollbar">
-      {data?.pages.map((group, groupIndex) => (
-        // group is EventResponse[]
-        group.map((event) => {
-            const marketData = event.markets?.[0];
-            if (!marketData) return null;
-            
-            const enrichedMarket: Market = {
-                id: marketData.id,
-                question: event.title || marketData.question, // Use event title often better for display
-                image: event.image,
-                description: event.description,
-                outcomes: marketData.outcomes,
-                outcomePrices: marketData.outcomePrices,
-                volume: marketData.volume,
-                active: event.active,
-                closed: event.closed,
-                slug: event.slug,
-            };
-
-            return (
-                <MarketCard key={`${event.id}-${marketData.id}`} market={enrichedMarket} />
-            );
-        })
-      ))}
+      {data?.pages.flatMap((group) =>
+        group.map((market) => (
+          <MarketCard key={market.id} market={market} />
+        ))
+      )}
       
-      <div ref={ref} className="h-10 w-full flex items-center justify-center snap-end text-white/50 pb-20">
+      <div ref={ref} className="h-10 w-full flex items-center justify-center snap-end text-white/40 font-mono-brand text-sm pb-20">
         {isFetchingNextPage ? 'Loading more...' : 'End of feed'}
       </div>
     </div>

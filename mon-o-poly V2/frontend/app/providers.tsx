@@ -13,8 +13,8 @@ export default function Providers({ children }: { children: ReactNode }) {
       config={{
         loginMethods: ['email', 'wallet'],
         appearance: {
-          theme: 'light',
-          accentColor: '#676FFF',
+          theme: 'dark',
+          accentColor: '#6E54FF',
         },
         embeddedWallets: {
           createOnLogin: 'users-without-wallets',

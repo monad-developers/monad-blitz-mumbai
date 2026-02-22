@@ -5,12 +5,25 @@ declare module 'liveline' {
     data: { time: number; value: number }[];
     value: number;
     color?: string;
-    width?: number;
-    height?: number;
-    showGrid?: boolean;
-    showTooltip?: boolean;
-    animate?: boolean;
-    // Add other props as needed based on library documentation
+    theme?: 'light' | 'dark';
+    formatValue?: (v: number) => string;
+    formatTime?: (t: number) => string;
+    showValue?: boolean;
+    valueMomentumColor?: boolean;
+    exaggerate?: boolean;
+    referenceLine?: { value: number; label?: string };
+    windows?: { label: string; secs: number }[];
+    windowStyle?: 'default' | 'rounded' | 'text';
+    onWindowChange?: (secs: number) => void;
+    badgeVariant?: 'default' | 'minimal';
+    badge?: boolean;
+    emptyText?: string;
+    loading?: boolean;
+    momentum?: boolean | 'up' | 'down' | 'flat';
+    scrub?: boolean;
+    fill?: boolean;
+    pulse?: boolean;
+    grid?: boolean;
   }
 
   export const Liveline: FC<LivelineProps>;

@@ -9,7 +9,8 @@ export interface Market {
   endDate?: string;
   active: boolean;
   closed: boolean;
-  // properties from event
   slug?: string;
   createdAt?: string;
+  /** CLOB token IDs for YES (index 0) and NO (index 1) - used for price history & WebSocket */
+  clobTokenIds?: string[];
 }
