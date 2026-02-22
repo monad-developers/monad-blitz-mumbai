@@ -1,0 +1,2 @@
+# Ignore Next.js boilerplate in language stats
+packages/nextjs/** linguist-vendored
