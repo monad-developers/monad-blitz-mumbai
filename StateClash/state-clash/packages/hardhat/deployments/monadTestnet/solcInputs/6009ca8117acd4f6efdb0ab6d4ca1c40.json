@@ -1,0 +1,36 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/Canvas.sol": {
+      "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.30;\n\n/**\n * @title Canvas\n * @notice A collaborative 50x50 pixel canvas that demonstrates Monad's\n *         Optimistic Parallel EVM by detecting same-block state collisions.\n */\ncontract Canvas {\n    uint256 public constant GRID_SIZE = 50;\n\n    struct Pixel {\n        uint8 color;\n        uint256 lastUpdateBlock;\n        uint256 updatesInCurrentBlock;\n    }\n\n    /// @notice 1D mapping representing the 50x50 grid. pixelId = x*50 + y\n    mapping(uint256 => Pixel) public canvas;\n\n    /// @notice Emitted when a pixel is drawn with no same-block contention.\n    event PixelUpdated(uint256 indexed pixelId, address indexed painter, uint8 color);\n\n    /// @notice Emitted when two transactions touch the same pixel in one block.\n    event StateCollision(uint256 indexed pixelId, address indexed painter, uint256 blockNumber);\n\n    /**\n     * @notice Paint a pixel on the canvas.\n     * @param _x X coordinate (0-49)\n     * @param _y Y coordinate (0-49)\n     * @param _color Color index (0-255)\n     */\n    function drawPixel(uint256 _x, uint256 _y, uint8 _color) external {\n        require(_x < GRID_SIZE, \"X out of bounds\");\n        require(_y < GRID_SIZE, \"Y out of bounds\");\n\n        uint256 pixelId = (_x * GRID_SIZE) + _y;\n        Pixel storage px = canvas[pixelId];\n\n        // Reset the block counter if we are in a new block\n        if (px.lastUpdateBlock != block.number) {\n            px.lastUpdateBlock = block.number;\n            px.updatesInCurrentBlock = 0;\n        }\n\n        // If this exact pixel has already been updated in THIS block, it's a collision\n        if (px.updatesInCurrentBlock > 0) {\n            emit StateCollision(pixelId, msg.sender, block.number);\n        } else {\n            emit PixelUpdated(pixelId, msg.sender, _color);\n        }\n\n        px.color = _color;\n        px.updatesInCurrentBlock += 1;\n    }\n}\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": true,
+      "runs": 200
+    },
+    "evmVersion": "paris",
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}

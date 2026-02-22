@@ -1,0 +1,239 @@
+{
+  "address": "0xF04B27c7174bfA11302D7265B71BDEaA98cc3De3",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "pixelId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "painter",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint8",
+          "name": "color",
+          "type": "uint8"
+        }
+      ],
+      "name": "PixelUpdated",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "pixelId",
+          "type": "uint256"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "painter",
+          "type": "address"
+        },
+        {
+          "indexed": false,
+          "internalType": "uint256",
+          "name": "blockNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "StateCollision",
+      "type": "event"
+    },
+    {
+      "inputs": [],
+      "name": "GRID_SIZE",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "name": "canvas",
+      "outputs": [
+        {
+          "internalType": "uint8",
+          "name": "color",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint256",
+          "name": "lastUpdateBlock",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "updatesInCurrentBlock",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "_x",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "_y",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint8",
+          "name": "_color",
+          "type": "uint8"
+        }
+      ],
+      "name": "drawPixel",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "transactionHash": "0x2bdc0f2bb8348456eda4dd81c638ff741c6f7e1e66033a02018fb748383d7a3c",
+  "receipt": {
+    "to": null,
+    "from": "0xd2Dcf33feA200B830124106Bd86DA5245a94a72f",
+    "contractAddress": "0xF04B27c7174bfA11302D7265B71BDEaA98cc3De3",
+    "transactionIndex": 1,
+    "gasUsed": "227786",
+    "logsBloom": "0x00000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+    "blockHash": "0x8c187842bd5ca96ab67198f1df39f8e66a540fe571492093927d2739eb309e8f",
+    "transactionHash": "0x2bdc0f2bb8348456eda4dd81c638ff741c6f7e1e66033a02018fb748383d7a3c",
+    "logs": [],
+    "blockNumber": 14464726,
+    "cumulativeGasUsed": "227786",
+    "status": 1,
+    "byzantium": true
+  },
+  "args": [],
+  "numDeployments": 1,
+  "solcInputHash": "6009ca8117acd4f6efdb0ab6d4ca1c40",
+  "metadata": "{\"compiler\":{\"version\":\"0.8.30+commit.73712a01\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"pixelId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"painter\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint8\",\"name\":\"color\",\"type\":\"uint8\"}],\"name\":\"PixelUpdated\",\"type\":\"event\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":true,\"internalType\":\"uint256\",\"name\":\"pixelId\",\"type\":\"uint256\"},{\"indexed\":true,\"internalType\":\"address\",\"name\":\"painter\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"uint256\",\"name\":\"blockNumber\",\"type\":\"uint256\"}],\"name\":\"StateCollision\",\"type\":\"event\"},{\"inputs\":[],\"name\":\"GRID_SIZE\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"name\":\"canvas\",\"outputs\":[{\"internalType\":\"uint8\",\"name\":\"color\",\"type\":\"uint8\"},{\"internalType\":\"uint256\",\"name\":\"lastUpdateBlock\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"updatesInCurrentBlock\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[{\"internalType\":\"uint256\",\"name\":\"_x\",\"type\":\"uint256\"},{\"internalType\":\"uint256\",\"name\":\"_y\",\"type\":\"uint256\"},{\"internalType\":\"uint8\",\"name\":\"_color\",\"type\":\"uint8\"}],\"name\":\"drawPixel\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{\"drawPixel(uint256,uint256,uint8)\":{\"params\":{\"_color\":\"Color index (0-255)\",\"_x\":\"X coordinate (0-49)\",\"_y\":\"Y coordinate (0-49)\"}}},\"title\":\"Canvas\",\"version\":1},\"userdoc\":{\"events\":{\"PixelUpdated(uint256,address,uint8)\":{\"notice\":\"Emitted when a pixel is drawn with no same-block contention.\"},\"StateCollision(uint256,address,uint256)\":{\"notice\":\"Emitted when two transactions touch the same pixel in one block.\"}},\"kind\":\"user\",\"methods\":{\"canvas(uint256)\":{\"notice\":\"1D mapping representing the 50x50 grid. pixelId = x*50 + y\"},\"drawPixel(uint256,uint256,uint8)\":{\"notice\":\"Paint a pixel on the canvas.\"}},\"notice\":\"A collaborative 50x50 pixel canvas that demonstrates Monad's         Optimistic Parallel EVM by detecting same-block state collisions.\",\"version\":1}},\"settings\":{\"compilationTarget\":{\"contracts/Canvas.sol\":\"Canvas\"},\"evmVersion\":\"paris\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\",\"useLiteralContent\":true},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"contracts/Canvas.sol\":{\"content\":\"// SPDX-License-Identifier: MIT\\npragma solidity ^0.8.30;\\n\\n/**\\n * @title Canvas\\n * @notice A collaborative 50x50 pixel canvas that demonstrates Monad's\\n *         Optimistic Parallel EVM by detecting same-block state collisions.\\n */\\ncontract Canvas {\\n    uint256 public constant GRID_SIZE = 50;\\n\\n    struct Pixel {\\n        uint8 color;\\n        uint256 lastUpdateBlock;\\n        uint256 updatesInCurrentBlock;\\n    }\\n\\n    /// @notice 1D mapping representing the 50x50 grid. pixelId = x*50 + y\\n    mapping(uint256 => Pixel) public canvas;\\n\\n    /// @notice Emitted when a pixel is drawn with no same-block contention.\\n    event PixelUpdated(uint256 indexed pixelId, address indexed painter, uint8 color);\\n\\n    /// @notice Emitted when two transactions touch the same pixel in one block.\\n    event StateCollision(uint256 indexed pixelId, address indexed painter, uint256 blockNumber);\\n\\n    /**\\n     * @notice Paint a pixel on the canvas.\\n     * @param _x X coordinate (0-49)\\n     * @param _y Y coordinate (0-49)\\n     * @param _color Color index (0-255)\\n     */\\n    function drawPixel(uint256 _x, uint256 _y, uint8 _color) external {\\n        require(_x < GRID_SIZE, \\\"X out of bounds\\\");\\n        require(_y < GRID_SIZE, \\\"Y out of bounds\\\");\\n\\n        uint256 pixelId = (_x * GRID_SIZE) + _y;\\n        Pixel storage px = canvas[pixelId];\\n\\n        // Reset the block counter if we are in a new block\\n        if (px.lastUpdateBlock != block.number) {\\n            px.lastUpdateBlock = block.number;\\n            px.updatesInCurrentBlock = 0;\\n        }\\n\\n        // If this exact pixel has already been updated in THIS block, it's a collision\\n        if (px.updatesInCurrentBlock > 0) {\\n            emit StateCollision(pixelId, msg.sender, block.number);\\n        } else {\\n            emit PixelUpdated(pixelId, msg.sender, _color);\\n        }\\n\\n        px.color = _color;\\n        px.updatesInCurrentBlock += 1;\\n    }\\n}\\n\",\"keccak256\":\"0xae1a0d24823682e38023856dc077961cef62fa942d3806b20145da81457db61e\",\"license\":\"MIT\"}},\"version\":1}",
+  "bytecode": "0x6080604052348015600f57600080fd5b5061031a8061001f6000396000f3fe608060405234801561001057600080fd5b50600436106100415760003560e01c80636c0614a4146100465780637fc4eda81461009d578063c548d7a0146100b3575b600080fd5b610079610054366004610246565b60006020819052908152604090208054600182015460029092015460ff909116919083565b6040805160ff90941684526020840192909252908201526060015b60405180910390f35b6100a5603281565b604051908152602001610094565b6100c66100c136600461025f565b6100c8565b005b6032831061010f5760405162461bcd60e51b815260206004820152600f60248201526e58206f7574206f6620626f756e647360881b60448201526064015b60405180910390fd5b603282106101515760405162461bcd60e51b815260206004820152600f60248201526e59206f7574206f6620626f756e647360881b6044820152606401610106565b60008261015f6032866102b4565b61016991906102d1565b6000818152602081905260409020600181015491925090431461019457436001820155600060028201555b6002810154156101da57604051438152339083907f3c109f56ec7dc84cd7573e504c7e477660c1669feb7222cb4037df0e2c5b1a539060200160405180910390a3610215565b60405160ff84168152339083907ff419815e72811c91e21816c3a0d8d51935fa93015ec81a4c9d39865f23c5ece59060200160405180910390a35b805460ff191660ff84161781556002810180546001919060009061023a9084906102d1565b90915550505050505050565b60006020828403121561025857600080fd5b5035919050565b60008060006060848603121561027457600080fd5b8335925060208401359150604084013560ff8116811461029357600080fd5b809150509250925092565b634e487b7160e01b600052601160045260246000fd5b80820281158282048414176102cb576102cb61029e565b92915050565b808201808211156102cb576102cb61029e56fea264697066735822122083d4759da10165303a8ce682b22c17d2e6baf3a0e840f0a429287982f3f0b9dc64736f6c634300081e0033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b50600436106100415760003560e01c80636c0614a4146100465780637fc4eda81461009d578063c548d7a0146100b3575b600080fd5b610079610054366004610246565b60006020819052908152604090208054600182015460029092015460ff909116919083565b6040805160ff90941684526020840192909252908201526060015b60405180910390f35b6100a5603281565b604051908152602001610094565b6100c66100c136600461025f565b6100c8565b005b6032831061010f5760405162461bcd60e51b815260206004820152600f60248201526e58206f7574206f6620626f756e647360881b60448201526064015b60405180910390fd5b603282106101515760405162461bcd60e51b815260206004820152600f60248201526e59206f7574206f6620626f756e647360881b6044820152606401610106565b60008261015f6032866102b4565b61016991906102d1565b6000818152602081905260409020600181015491925090431461019457436001820155600060028201555b6002810154156101da57604051438152339083907f3c109f56ec7dc84cd7573e504c7e477660c1669feb7222cb4037df0e2c5b1a539060200160405180910390a3610215565b60405160ff84168152339083907ff419815e72811c91e21816c3a0d8d51935fa93015ec81a4c9d39865f23c5ece59060200160405180910390a35b805460ff191660ff84161781556002810180546001919060009061023a9084906102d1565b90915550505050505050565b60006020828403121561025857600080fd5b5035919050565b60008060006060848603121561027457600080fd5b8335925060208401359150604084013560ff8116811461029357600080fd5b809150509250925092565b634e487b7160e01b600052601160045260246000fd5b80820281158282048414176102cb576102cb61029e565b92915050565b808201808211156102cb576102cb61029e56fea264697066735822122083d4759da10165303a8ce682b22c17d2e6baf3a0e840f0a429287982f3f0b9dc64736f6c634300081e0033",
+  "devdoc": {
+    "kind": "dev",
+    "methods": {
+      "drawPixel(uint256,uint256,uint8)": {
+        "params": {
+          "_color": "Color index (0-255)",
+          "_x": "X coordinate (0-49)",
+          "_y": "Y coordinate (0-49)"
+        }
+      }
+    },
+    "title": "Canvas",
+    "version": 1
+  },
+  "userdoc": {
+    "events": {
+      "PixelUpdated(uint256,address,uint8)": {
+        "notice": "Emitted when a pixel is drawn with no same-block contention."
+      },
+      "StateCollision(uint256,address,uint256)": {
+        "notice": "Emitted when two transactions touch the same pixel in one block."
+      }
+    },
+    "kind": "user",
+    "methods": {
+      "canvas(uint256)": {
+        "notice": "1D mapping representing the 50x50 grid. pixelId = x*50 + y"
+      },
+      "drawPixel(uint256,uint256,uint8)": {
+        "notice": "Paint a pixel on the canvas."
+      }
+    },
+    "notice": "A collaborative 50x50 pixel canvas that demonstrates Monad's         Optimistic Parallel EVM by detecting same-block state collisions.",
+    "version": 1
+  },
+  "storageLayout": {
+    "storage": [
+      {
+        "astId": 18,
+        "contract": "contracts/Canvas.sol:Canvas",
+        "label": "canvas",
+        "offset": 0,
+        "slot": "0",
+        "type": "t_mapping(t_uint256,t_struct(Pixel)12_storage)"
+      }
+    ],
+    "types": {
+      "t_mapping(t_uint256,t_struct(Pixel)12_storage)": {
+        "encoding": "mapping",
+        "key": "t_uint256",
+        "label": "mapping(uint256 => struct Canvas.Pixel)",
+        "numberOfBytes": "32",
+        "value": "t_struct(Pixel)12_storage"
+      },
+      "t_struct(Pixel)12_storage": {
+        "encoding": "inplace",
+        "label": "struct Canvas.Pixel",
+        "members": [
+          {
+            "astId": 7,
+            "contract": "contracts/Canvas.sol:Canvas",
+            "label": "color",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_uint8"
+          },
+          {
+            "astId": 9,
+            "contract": "contracts/Canvas.sol:Canvas",
+            "label": "lastUpdateBlock",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256"
+          },
+          {
+            "astId": 11,
+            "contract": "contracts/Canvas.sol:Canvas",
+            "label": "updatesInCurrentBlock",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_uint256"
+          }
+        ],
+        "numberOfBytes": "96"
+      },
+      "t_uint256": {
+        "encoding": "inplace",
+        "label": "uint256",
+        "numberOfBytes": "32"
+      },
+      "t_uint8": {
+        "encoding": "inplace",
+        "label": "uint8",
+        "numberOfBytes": "1"
+      }
+    }
+  }
+}
