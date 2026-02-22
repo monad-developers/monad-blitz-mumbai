@@ -95,6 +95,39 @@ app.get('/api/markets/:tokenId/price-history', async (req, res) => {
   }
 });
 
+// Current mid price for a token (used for polling fallback)
+app.get('/api/markets/:tokenId/midpoint', async (req, res) => {
+  const { tokenId } = req.params;
+  if (!tokenId) return res.status(400).json({ error: 'Missing tokenId' });
+  try {
+    const response = await axios.get(`${CLOB_API_URL}/midpoint`, {
+      params: { token_id: tokenId },
+      timeout: 5000,
+    });
+    res.json(response.data); // { mid: "0.123" }
+  } catch (error) {
+    console.warn('Midpoint fetch failed:', error.message);
+    res.status(500).json({ error: 'Failed to fetch midpoint' });
+  }
+});
+
+// Best buy/sell price for a token (ask = what you pay to buy, bid = what you get to sell)
+app.get('/api/markets/:tokenId/best-price', async (req, res) => {
+  const { tokenId } = req.params;
+  const { side = 'BUY' } = req.query;
+  if (!tokenId) return res.status(400).json({ error: 'Missing tokenId' });
+  try {
+    const response = await axios.get(`${CLOB_API_URL}/price`, {
+      params: { token_id: tokenId, side: side.toUpperCase() },
+      timeout: 5000,
+    });
+    res.json(response.data); // { price: "0.21" }
+  } catch (error) {
+    console.warn('Best price fetch failed:', error.message);
+    res.status(500).json({ error: 'Failed to fetch best price' });
+  }
+});
+
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
