@@ -4,3 +4,6 @@
 [submodule "hardhat-monad"]
 	path = hardhat-monad
 	url = https://github.com/monad-developers/hardhat-monad.git
+[submodule "mon-o-poly V2/hardhat-monad"]
+	path = mon-o-poly V2/hardhat-monad
+	url = https://github.com/monad-developers/hardhat-monad.git
