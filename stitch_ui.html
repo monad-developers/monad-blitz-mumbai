@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KIRMADA - Dashboard</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;500;600;700&amp;family=JetBrains+Mono:wght@400;500;700&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-surface-variant": "#c4c7c7",
+                        "secondary-container": "#47475d",
+                        "on-tertiary-container": "#5b7e7c",
+                        "secondary-fixed": "#e2e0fc",
+                        "tertiary": "#a9cecc",
+                        "surface-container-lowest": "#0e0e0e",
+                        "secondary-fixed-dim": "#c6c4df",
+                        "surface-bright": "#3a3939",
+                        "secondary": "#c6c4df",
+                        "tertiary-fixed": "#c4eae8",
+                        "outline": "#8e9192",
+                        "inverse-on-surface": "#313030",
+                        "primary": "#c9c6c5",
+                        "outline-variant": "#444748",
+                        "primary-fixed-dim": "#c9c6c5",
+                        "surface-container": "#201f1f",
+                        "on-secondary-fixed-variant": "#45455b",
+                        "primary-container": "#050505",
+                        "on-tertiary-fixed": "#00201f",
+                        "surface-container-low": "#1c1b1b",
+                        "tertiary-fixed-dim": "#a9cecc",
+                        "tertiary-container": "#000606",
+                        "on-secondary": "#2f2e43",
+                        "error": "#ffb4ab",
+                        "on-primary-container": "#797777",
+                        "on-primary-fixed-variant": "#474646",
+                        "on-tertiary": "#113635",
+                        "surface-dim": "#141313",
+                        "on-error-container": "#ffdad6",
+                        "surface-tint": "#c9c6c5",
+                        "on-surface": "#e5e2e1",
+                        "inverse-surface": "#e5e2e1",
+                        "background": "#141313",
+                        "on-primary": "#313030",
+                        "on-secondary-fixed": "#1a1a2e",
+                        "surface": "#141313",
+                        "on-background": "#e5e2e1",
+                        "on-error": "#690005",
+                        "surface-variant": "#353434",
+                        "error-container": "#93000a",
+                        "primary-fixed": "#e5e2e1",
+                        "on-primary-fixed": "#1c1b1b",
+                        "on-secondary-container": "#b8b6d0",
+                        "surface-container-highest": "#353434",
+                        "surface-container-high": "#2b2a2a",
+                        "inverse-primary": "#5f5e5e",
+                        "on-tertiary-fixed-variant": "#2a4c4b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-md": "12px",
+                        "gutter": "16px",
+                        "margin-edge": "32px",
+                        "container-padding": "24px",
+                        "base": "8px",
+                        "stack-lg": "40px",
+                        "stack-sm": "4px"
+                    },
+                    "fontFamily": {
+                        "display-lg": ["Lexend"],
+                        "data-mono": ["JetBrains Mono"],
+                        "headline-md": ["Lexend"],
+                        "label-caps": ["JetBrains Mono"],
+                        "body-md": ["Inter"],
+                        "display-lg-mobile": ["Lexend"],
+                        "body-lg": ["Inter"]
+                    },
+                    "fontSize": {
+                        "display-lg": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "data-mono": ["14px", { "lineHeight": "20px", "letterSpacing": "0.05em", "fontWeight": "500" }],
+                        "headline-md": ["24px", { "lineHeight": "32px", "fontWeight": "600" }],
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "display-lg-mobile": ["32px", { "lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "28px", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .noise-bg {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
+        }
+        .glass-cell {
+            background: rgba(15, 52, 51, 0.2);
+            backdrop-filter: blur(20px);
+            border: 0.5px solid rgba(255, 255, 255, 0.1);
+            border-top: 0.5px solid rgba(255, 255, 255, 0.2);
+            box-shadow: inset 1px 1px 0px 0px rgba(255,255,255,0.05);
+        }
+        .glow-cyan { text-shadow: 0 0 10px rgba(169, 206, 204, 0.8); }
+        .glow-purple { text-shadow: 0 0 10px rgba(138, 43, 226, 0.8); }
+        .glow-gold { text-shadow: 0 0 10px rgba(255, 215, 0, 0.8); }
+        .glow-neon-green { text-shadow: 0 0 10px rgba(57, 255, 20, 0.8); }
+        
+        .faction-oracle { box-shadow: 0 0 30px rgba(255, 215, 0, 0.1), inset 0 0 20px rgba(169, 206, 204, 0.05); border-color: rgba(255, 215, 0, 0.2); }
+        .faction-virus { box-shadow: 0 0 30px rgba(57, 255, 20, 0.1), inset 0 0 20px rgba(57, 255, 20, 0.05); border-color: rgba(57, 255, 20, 0.2); }
+        .faction-collective { box-shadow: 0 0 30px rgba(138, 43, 226, 0.1), inset 0 0 20px rgba(138, 43, 226, 0.05); border-color: rgba(138, 43, 226, 0.2); }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body-md antialiased min-h-screen flex noise-bg">
+<!-- TopNavBar -->
+<header class="bg-surface-container-lowest/80 backdrop-blur-xl docked full-width top-0 sticky z-50 border-b border-outline-variant/10 shadow-[inset_0px_1px_0px_0px_rgba(255,255,255,0.05)] shadow-xl flex justify-between items-center px-margin-edge h-20 w-full fixed w-full md:hidden">
+<!-- Render TopNavBar here from JSON if needed, but per instructions WEB uses SideNav and Top Nav on top. Wait, "On WEB (hidden md:flex), hide the BottomNavBar and use the full nav cluster in the TopAppBar" - but the prompt asks for TopNavBar and SideNavBar. I will render both as requested, SideNav for desktop, TopNav for mobile. -->
+<div class="flex items-center gap-gutter">
+<span class="font-display-lg-mobile text-display-lg-mobile font-bold tracking-tighter text-on-surface">KIRMADA</span>
+</div>
+<div class="flex items-center gap-gutter">
+<span class="text-on-surface-variant font-data-mono text-data-mono">12,450 Influence</span>
+<span class="text-on-surface-variant font-data-mono text-data-mono hidden sm:inline">Lv. 12</span>
+<span class="material-symbols-outlined text-tertiary">notifications</span>
+<span class="material-symbols-outlined text-tertiary">settings</span>
+<img alt="Cult Leader Profile" class="w-8 h-8 rounded-full border border-outline-variant/20" data-alt="A dark, cinematic macro shot of an occult sigil etched in obsidian glass, glowing faintly with a cyan technological aura. The lighting is low and moody, emphasizing the sharp edges of the engraving against a void-like background. The overall aesthetic blends dark glassmorphism with Web3 gaming themes." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzYG38I_fru9qokK6Ye14hSfxfFyISLoLn3nK_Y34spihG2M2MIpx9_BmUPv7n9ySOMAlQSxhwBqrWoNkisn3XK43RN7lAWF-R1gigxBtGIBQpWI6Nf2dIvcW0Bzvw9W9f-SAbjE_rsZGx5PU3hkFhZL6wSlbyCQeOCFywmvYWRuU8bD7hOAWUNOJ4bBA9Q4vv_B0u7rV3TGtrgHL0qEZqHQiXQYK5h47H2SxWQ5a9SR8TWk6XCnej5xw0MbscZg9yWpctcHN9ts9q"/>
+</div>
+</header>
+<!-- SideNavBar (Desktop) -->
+<nav class="bg-surface-container-low/60 backdrop-blur-2xl docked left-0 h-screen w-64 fixed border-r border-outline-variant/5 bg-gradient-to-b from-surface-container-lowest to-surface-dim shadow-[20px_0_40px_rgba(0,0,0,0.4)] flex flex-col h-full py-stack-lg gap-base hidden md:flex z-40">
+<div class="px-container-padding mb-stack-md flex flex-col items-center justify-center">
+<img alt="Oracle Sigil" class="w-16 h-16 rounded-full mb-base border border-tertiary/20 shadow-[0_0_15px_rgba(169,206,204,0.2)]" data-alt="A glowing, holographic oracle sigil floating in a pitch-black void. The sigil is composed of sharp, intersecting lines with a subtle teal and gold inner glow. The surrounding area is filled with a fine, synthetic atmospheric grain, giving it a highly advanced, ritualistic feel consistent with a dark glassmorphism UI." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhCmeZGpgh-0BGIyluILqYDE_VoBm72pd5B8x4rAYnK0a54J9hgRB9d7GIa3DTYcZjQgElgNChdePmGG7AwuEHZfne2HjNxv9q7S9rJEiUH8Oiz4knsxihjyaKjfOhrGACasylW3wbEvYFLerBwHNg-qnykPPncH1UQ42Yd808DQv1KDEHGoXnE9OwTvFr2s0Wvy8kYfOGDvG-SokuBC81yyJQRajOFBUqpOSiDgcZTM8MrmNpzKGDSeSHgspz1N3jAyklTsysT2f4"/>
+<h1 class="font-display-lg text-headline-md text-on-surface font-bold tracking-tighter">KIRMADA</h1>
+<p class="font-data-mono text-label-caps text-tertiary opacity-80">Protocol V.2.0</p>
+</div>
+<div class="flex flex-col gap-stack-sm flex-1 mt-stack-md">
+<a class="flex items-center gap-stack-md text-tertiary bg-tertiary-container/30 border-l-2 border-tertiary shadow-[0_0_15px_rgba(169,206,204,0.2)] px-container-padding py-base font-label-caps text-label-caps transition-all duration-200 ease-in-out scale-95" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+                Home
+            </a>
+<a class="flex items-center gap-stack-md text-on-surface-variant px-container-padding py-base opacity-70 hover:opacity-100 hover:bg-surface-variant/20 hover:text-on-surface transition-all font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined">groups</span>
+                Parties
+            </a>
+<a class="flex items-center gap-stack-md text-on-surface-variant px-container-padding py-base opacity-70 hover:opacity-100 hover:bg-surface-variant/20 hover:text-on-surface transition-all font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined">forum</span>
+                Debates
+            </a>
+<a class="flex items-center gap-stack-md text-on-surface-variant px-container-padding py-base opacity-70 hover:opacity-100 hover:bg-surface-variant/20 hover:text-on-surface transition-all font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined">how_to_vote</span>
+                Vote
+            </a>
+<a class="flex items-center gap-stack-md text-on-surface-variant px-container-padding py-base opacity-70 hover:opacity-100 hover:bg-surface-variant/20 hover:text-on-surface transition-all font-label-caps text-label-caps" href="#">
+<span class="material-symbols-outlined">gavel</span>
+                Laws
+            </a>
+</div>
+<div class="px-container-padding mt-auto">
+<button class="w-full bg-tertiary/20 text-tertiary border border-tertiary/50 hover:bg-tertiary hover:text-primary-container hover:shadow-[0_0_20px_rgba(169,206,204,0.4)] transition-all py-base rounded px-gutter font-label-caps text-label-caps flex items-center justify-center gap-base">
+<span class="material-symbols-outlined">bolt</span>
+                Initiate Ritual
+            </button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<main class="flex-1 md:ml-64 pt-20 md:pt-0 p-margin-edge flex flex-col lg:flex-row gap-margin-edge min-h-screen">
+<!-- Center Canvas: Factions -->
+<div class="flex-1 flex flex-col gap-margin-edge">
+<header class="flex justify-between items-end pb-gutter border-b border-outline-variant/10">
+<div>
+<h2 class="font-headline-md text-headline-md text-on-surface">Dominion Overview</h2>
+<p class="font-data-mono text-data-mono text-on-surface-variant opacity-70 mt-stack-sm">Cycle 44.2 - Convergence Imminent</p>
+</div>
+</header>
+<div class="grid grid-cols-1 xl:grid-cols-3 gap-gutter">
+<!-- Faction: The Oracle -->
+<div class="glass-cell rounded-xl p-container-padding flex flex-col gap-stack-md faction-oracle relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-b from-[rgba(255,215,0,0.05)] to-transparent pointer-events-none"></div>
+<div class="flex justify-between items-start z-10">
+<span class="material-symbols-outlined text-[40px] text-[#ffd700] opacity-80 group-hover:glow-gold transition-all duration-500">visibility</span>
+<div class="px-2 py-1 rounded bg-[#ffd700]/10 border border-[#ffd700]/30 font-data-mono text-label-caps text-[#ffd700]">78.4%</div>
+</div>
+<div class="z-10 mt-auto pt-stack-lg">
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface">The Oracle</h3>
+<p class="font-body-md text-label-caps text-on-surface-variant mt-stack-sm opacity-80">Prescience &amp; Order</p>
+</div>
+<div class="z-10 mt-stack-md">
+<div class="h-1 bg-surface-container w-full rounded-full overflow-hidden">
+<div class="h-full bg-[#ffd700] w-[78.4%] relative shadow-[0_0_10px_rgba(255,215,0,0.8)]">
+<div class="absolute right-0 top-0 h-full w-1 bg-white"></div>
+</div>
+</div>
+</div>
+<button class="z-10 mt-stack-md w-full py-base font-data-mono text-label-caps text-center border border-outline-variant/30 hover:border-[#ffd700] hover:text-[#ffd700] transition-colors rounded text-on-surface-variant bg-surface-container/30">TRANSCEND</button>
+</div>
+<!-- Faction: The Virus -->
+<div class="glass-cell rounded-xl p-container-padding flex flex-col gap-stack-md faction-virus relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-b from-[rgba(57,255,20,0.05)] to-transparent pointer-events-none"></div>
+<div class="flex justify-between items-start z-10">
+<span class="material-symbols-outlined text-[40px] text-[#39ff14] opacity-80 group-hover:glow-neon-green transition-all duration-500">bug_report</span>
+<div class="px-2 py-1 rounded bg-[#39ff14]/10 border border-[#39ff14]/30 font-data-mono text-label-caps text-[#39ff14]">42.1%</div>
+</div>
+<div class="z-10 mt-auto pt-stack-lg">
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface">The Virus</h3>
+<p class="font-body-md text-label-caps text-on-surface-variant mt-stack-sm opacity-80">Chaos &amp; Evolution</p>
+</div>
+<div class="z-10 mt-stack-md">
+<div class="h-1 bg-surface-container w-full rounded-full overflow-hidden">
+<div class="h-full bg-[#39ff14] w-[42.1%] relative shadow-[0_0_10px_rgba(57,255,20,0.8)]">
+<div class="absolute right-0 top-0 h-full w-1 bg-white"></div>
+</div>
+</div>
+</div>
+<button class="z-10 mt-stack-md w-full py-base font-data-mono text-label-caps text-center border border-outline-variant/30 hover:border-[#39ff14] hover:text-[#39ff14] transition-colors rounded text-on-surface-variant bg-surface-container/30">TRANSCEND</button>
+</div>
+<!-- Faction: The Collective -->
+<div class="glass-cell rounded-xl p-container-padding flex flex-col gap-stack-md faction-collective relative overflow-hidden group">
+<div class="absolute inset-0 bg-gradient-to-b from-[rgba(138,43,226,0.05)] to-transparent pointer-events-none"></div>
+<div class="flex justify-between items-start z-10">
+<span class="material-symbols-outlined text-[40px] text-[#8a2be2] opacity-80 group-hover:glow-purple transition-all duration-500">hive</span>
+<div class="px-2 py-1 rounded bg-[#8a2be2]/10 border border-[#8a2be2]/30 font-data-mono text-label-caps text-[#8a2be2]">61.9%</div>
+</div>
+<div class="z-10 mt-auto pt-stack-lg">
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface">The Collective</h3>
+<p class="font-body-md text-label-caps text-on-surface-variant mt-stack-sm opacity-80">Unity &amp; Submission</p>
+</div>
+<div class="z-10 mt-stack-md">
+<div class="h-1 bg-surface-container w-full rounded-full overflow-hidden">
+<div class="h-full bg-[#8a2be2] w-[61.9%] relative shadow-[0_0_10px_rgba(138,43,226,0.8)]">
+<div class="absolute right-0 top-0 h-full w-1 bg-white"></div>
+</div>
+</div>
+</div>
+<button class="z-10 mt-stack-md w-full py-base font-data-mono text-label-caps text-center border border-outline-variant/30 hover:border-[#8a2be2] hover:text-[#8a2be2] transition-colors rounded text-on-surface-variant bg-surface-container/30">TRANSCEND</button>
+</div>
+</div>
+<!-- Additional Data Space to fill canvas -->
+<div class="glass-cell rounded-xl p-container-padding flex-1 mt-gutter flex items-center justify-center border-dashed border-outline-variant/20 opacity-50 hover:opacity-100 transition-opacity">
+<div class="text-center">
+<span class="material-symbols-outlined text-[48px] text-tertiary mb-base">schema</span>
+<p class="font-data-mono text-data-mono text-tertiary">Awaiting Ritual Data Expansion...</p>
+</div>
+</div>
+</div>
+<!-- Right Sidebar -->
+<aside class="w-full lg:w-80 flex flex-col gap-gutter shrink-0">
+<!-- Current National Issue -->
+<div class="glass-cell rounded-xl p-container-padding flex flex-col gap-stack-md relative z-30 shadow-[0_0_20px_rgba(0,0,0,0.5)] border border-tertiary/20">
+<div class="flex items-center gap-base text-tertiary mb-stack-sm">
+<span class="material-symbols-outlined text-[16px]">warning</span>
+<span class="font-label-caps text-label-caps tracking-widest">ACTIVE DIRECTIVE</span>
+</div>
+<h3 class="font-headline-md text-headline-md text-on-surface">The Digital Schism</h3>
+<div class="mt-stack-md flex flex-col gap-stack-sm">
+<div class="flex justify-between font-data-mono text-label-caps text-on-surface-variant">
+<span>Sever Nodes</span>
+<span>Maintain Links</span>
+</div>
+<div class="h-2 bg-surface-container w-full rounded-full overflow-hidden flex">
+<div class="h-full bg-error w-[35%] relative"></div>
+<div class="h-full bg-tertiary w-[65%] relative shadow-[0_0_10px_rgba(169,206,204,0.5)]">
+<div class="absolute left-0 top-0 h-full w-1 bg-white"></div>
+</div>
+</div>
+</div>
+<button class="mt-stack-md w-full py-base bg-tertiary/10 text-tertiary border border-tertiary hover:bg-tertiary hover:text-primary-container transition-all rounded font-label-caps text-label-caps shadow-[inset_0_0_10px_rgba(169,206,204,0.2)]">
+                    CAST VOTE
+                </button>
+</div>
+<!-- Upcoming Debate -->
+<div class="glass-cell rounded-xl p-container-padding flex flex-col gap-stack-md border-t-outline-variant/30">
+<div class="flex items-center gap-base text-secondary mb-stack-sm">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span class="font-label-caps text-label-caps tracking-widest">PENDING RITUAL</span>
+</div>
+<h3 class="font-headline-md text-body-lg font-bold text-on-surface">Protocol V.2.1 Ethics</h3>
+<div class="font-data-mono text-headline-md text-center py-stack-md border-y border-outline-variant/10 text-on-surface tracking-widest glow-cyan my-stack-sm">
+                    04:12:09
+                </div>
+<div class="flex flex-col gap-stack-sm">
+<span class="font-label-caps text-label-caps text-on-surface-variant mb-stack-sm">TRIBUNAL MEMBERS</span>
+<div class="flex items-center gap-stack-md py-stack-sm border-b border-outline-variant/5 hover:bg-surface-variant/10 transition-colors px-base -mx-base rounded">
+<img alt="Avatar 1" class="w-8 h-8 rounded border border-outline-variant/30" data-alt="A macro close-up of a digital avatar portrait representing a high-ranking cultist. The face is obscured by an obsidian mask with sharp geometric facets, illuminated by a single thin horizontal strip of cyan LED light across the eyes. The background is pure black with subtle digital static, adhering to the dark glassmorphism aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA67lc-ljuJr-w6Jbeqedd0Ya-HM30RIZEr1f2fVLYIOlYA-k9dXoJh5UPbyHMlK__Y8EpmUK1BjMpuu71x7fcocmI6G-brfnXzPFryaufLpWZLrEQKe68O0Wy3oHaVjbkLd54VW8AsP3OQaQYL2Lr6Yx7p0OAPpg3fQMe6qwNZnQtZurr9ks6NXtDrI1ZGUfSQvyGUQav2nxHV-4uQB1LuWdRLu7D5_Pt8jm1PeNEIdxLQ0AQ247c2kwsEZFBYAyHk5aD1_rjHROMf"/>
+<span class="font-data-mono text-data-mono text-on-surface">0xA1...3F9</span>
+</div>
+<div class="flex items-center gap-stack-md py-stack-sm border-b border-outline-variant/5 hover:bg-surface-variant/10 transition-colors px-base -mx-base rounded">
+<img alt="Avatar 2" class="w-8 h-8 rounded border border-outline-variant/30" data-alt="A digital avatar of a techno-cultist wearing a deep purple cowl. The fabric is highly textured with a faint metallic sheen, blending into the shadowy obsidian background. Faint glowing purple circuitry patterns are barely visible on the neck. The mood is secretive and advanced, perfectly matching the Web3 dark UI theme." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCUDHW6elDtM4M-avUo7WXfcSQDQQAp4gZ0Ly9RYuaVs13BskKGboC5eiJDAub2ZDTlYG7sqrdyuPQPY-3MB6KMIwGIgYFdot9PSIguH5rMBhOMLxeLaVJtL8B6H5egSr-9DUkmKtNCdAev_dwBn1MLAd1u60cV4lC_qOzttlzj1SqV8d9ys99TywXSczzf3BHft0AKVS81JfdxV0AH3hF571irSYUBkAIRb_7GsknuxhD2FAH6vI0x0udtnj1AxHhI3Ce94Q5OM-uh"/>
+<span class="font-data-mono text-data-mono text-on-surface">0x7B...E22</span>
+</div>
+<div class="flex items-center gap-stack-md py-stack-sm hover:bg-surface-variant/10 transition-colors px-base -mx-base rounded">
+<img alt="Avatar 3" class="w-8 h-8 rounded border border-outline-variant/30" data-alt="An abstract avatar consisting of a floating, glitching skull rendered in wireframe neon green against a deep dark background. The lines are sharp and precise, suggesting high technology rather than organic decay. It sits within a faint dark glassmorphic box, contributing to the synthetic ethereal atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsZe8W3alztBt53QPOL_7XN6lAqZbXU-5OBaYr1NovXKs59vXsXl_Hv3kWh1m0-pL3--PsqFo06wFdjgVU57Ewcbxwz0QN8_M9U4gOsBc_VF91DJrUkeFXq9LMgcXURPeFmqy9cKNmjRpXd1dl2MizXlNUvdi23j2VUR_VBVeUEkkHDjbiCisICr-mpv1OS0C77EppWiehQgrU_JgmpH0VEmDyi3bgFCEBMSiGwh_bHtimonj2Zde9QVeoLjAfSu24C1R8gFXX-B0R"/>
+<span class="font-data-mono text-data-mono text-on-surface">0x9C...11A</span>
+</div>
+</div>
+</div>
+</aside>
+</main>
+</body></html>
