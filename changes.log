@@ -1,0 +1,75 @@
+Cult Simulator — Change Log
+Date: 2026-06-20
+
+Summary
+- Added the Agent Intelligence runtime for F1, F5, and F7.
+- Added deterministic special ability engines for Oracle, Virus, and Collective.
+- Added Next.js App Router route handlers for seeding, prophet cards, reflection, and schism generation.
+- Added Vitest-based tests and TypeScript project scaffolding.
+- Installed project dependencies with `pnpm` and verified the implementation with `pnpm typecheck` and `pnpm test`.
+
+Files Added
+- `package.json`
+- `pnpm-lock.yaml`
+- `tsconfig.json`
+- `vitest.config.ts`
+- `changes.log`
+- `tests/f1.seed.test.ts`
+- `tests/ability.engine.test.ts`
+- `tests/f5.reflect.test.ts`
+- `tests/f7.schism.test.ts`
+- `src/app/api/seed/prophets/route.ts`
+- `src/app/api/prophet/[id]/card/route.ts`
+- `src/app/api/reflect/route.ts`
+- `src/app/api/schism/route.ts`
+- `src/lib/config/env.ts`
+- `src/lib/llm/client.ts`
+- `src/lib/ideologies/specs.ts`
+- `src/lib/ideologies/generateIdeology.ts`
+- `src/lib/types/contracts.ts`
+- `src/lib/db/repository.ts`
+- `src/lib/db/index.ts`
+- `src/lib/db/neon.ts`
+- `src/lib/db/inMemoryRepository.ts`
+- `src/lib/db/sqlRepository.ts`
+- `src/lib/identity/erc8004.ts`
+- `src/lib/f1/seedProphets.ts`
+- `src/lib/prophet/card.ts`
+- `src/lib/abilities/engine.ts`
+- `src/lib/reflection/reflect.ts`
+- `src/lib/schism/generateSchisms.ts`
+- `.vscode/settings.json`
+
+Feature Details
+F1 — AI Prophet Creation
+- Seeded exactly three fixed ideologies: The Oracle, The Virus, and The Collective.
+- Added `generateIdeology(spec)` with MOCK_LLM support and strict JSON parsing.
+- Added `mintProphetIdentity()` for ERC-8004 minting, with mock token IDs in demo mode.
+- Added prophet card endpoint returning `{ name, doctrine, personality, specialAbility, endpoint }`.
+- Persisted ideologies, prophets, doctrine versions, and seed events through the repository layer.
+
+Special Ability Engine
+- Added `checkAndFulfillPredictions()` for Oracle keyword-based prediction fulfillment.
+- Added `recordInfectionTick()` and `getInfectionTier()` for Virus infection state.
+- Added `tallyVotes(seed?)` for deterministic Collective vote simulations.
+- Added unit tests for all three mechanics.
+
+F5 — Reflection Cycle
+- Added concurrent reflection over all ideologies using `Promise.all`.
+- Added strict JSON validation for reflection output.
+- Added doctrine version writes, doctrine updates, and `doctrine_change` event writes.
+- Added manual `POST /api/reflect` route and scheduler helper.
+
+F7 — Schism Generator
+- Added criticism threshold-based schism generation with tunable env threshold.
+- Added descendant-themed prompting so new ideologies stay tied to the parent ability/theme.
+- Added follower splitting, new prophet creation, identity minting, schism rows, and schism events.
+- Added manual `POST /api/schism` route.
+
+Validation
+- `pnpm typecheck` ✅
+- `pnpm test` ✅
+
+Notes
+- `MOCK_LLM=true` is the default, so teammates can build against deterministic output immediately.
+- `DATABASE_URL` enables the Neon-backed repository; otherwise the in-memory repository is used for local/testing flows.
